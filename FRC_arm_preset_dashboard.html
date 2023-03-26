@@ -1,54 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/x-icon" href="Logo.png">
+<title>Payload Control Dashboard</title>
 <style>
-
+body {
+    margin: 0px;
+    overflow: hidden;
+}
+#loading {
+    position: fixed;
+    background-color: #53698e;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    top: 0%;
+    transition: top 2s ease;
+}
+#loadingLogo {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+}
+#loadingText {
+    text-align: center;
+    position: relative;
+    top: 30%;
+    color: #deb200;
+    font-size: 3vw;
+    opacity: 100%;
+    transition: opacity 0.5s ease;
+}
 .topButtonsTemplate {
     width:24%;
     height:14%;
     position: absolute;
-    font-size: 32px;
-    border: solid 5px black;
+    font-size: 2vw;
+    border: solid 0.3vw black;
 }
 #cube_pickup {
     top:.5%;
     left:.5%;
-    background: blueviolet;
+    background-color: blueviolet;
 }
 #cone_pickup_side {
     top:.5%;
     left:25.5%;
-    background: yellow;
+    background-color: yellow;
 }
 #cone_pickup_ground {
     top:.5%;
     left:50.5%;
-    background: yellow;
+    background-color: yellow;
 }
 #cone_pickup_shelf {
     top:.5%;
     left:75.5%;
-    background: yellow;
+    background-color: yellow;
 }
 #mid_grid {
     top:15%;
     left:.5%;
-    background: #9af773;
+    background-color: #9af773;
 }
 #high_grid {
     top:15%;
     left:25.5%;
-    background: #9af773;
+    background-color: #9af773;
 }
 #arm_storage_traversal {
     top:15%;
     left:50.5%;
-    background: #9af773;
+    background-color: #9af773;
 }
 #arm_storage_start {
     top:15%;
     left:75.5%;
-    background: #9af773;
+    background-color: #9af773;
 }
 
 .bottomButtonsTemplateCones {
@@ -58,54 +90,8 @@
     border: solid 1px black;
     background: yellow;
 }
-#placeConeA1 {
-    bottom:.5%;
-    left:.75%;
-}
-#placeConeA2 {
-    bottom:11%;
-    left:.75%;
-}
-#placeConeC1 {
-    bottom:.5%;
-    left:22.75%;
-}
-#placeConeC2 {
-    bottom:11%;
-    left:22.75%;
-}
-#placeConeD1 {
-    bottom:.5%;
-    left:33.75%;
-}
-#placeConeD2 {
-    bottom:11%;
-    left:33.75%;
-}
-#placeConeF1 {
-    bottom:.5%;
-    left:55.75%;
-}
-#placeConeF2 {
-    bottom:11%;
-    left:55.75%;
-}
-#placeConeG1 {
-    bottom:.5%;
-    left:66.75%;
-}
-#placeConeG2 {
-    bottom:11%;
-    left:66.75%;
-}
-#placeConeI1 {
-    bottom:.5%;
-    left:88.75%;
-}
-#placeConeI2 {
-    bottom:11%;
-    left:88.75%;
-}
+
+
 .bottomButtonsTemplateCubes {
     width:10.75%;
     height:10%;
@@ -114,126 +100,180 @@
     background: blueviolet;
 }
 
-#placeCubeA3 {
+#grid1_1 {
     bottom:21.5%;
     left:.75%;
 }
-#placeCubeB1 {
-    bottom:.5%;
-    left:11.75%;
-}
-#placeCubeB2 {
-    bottom:11%;
-    left:11.75%;
-}
-#placeCubeB3 {
+#grid1_2 {
     bottom:21.5%;
     left:11.75%;
 }
-#placeCubeC3 {
+#grid1_3 {
     bottom:21.5%;
     left:22.75%;
 }
-#placeCubeD3 {
+#grid1_4 {
     bottom:21.5%;
     left:33.75%;
 }
-#placeCubeE1 {
-    bottom:.5%;
-    left:44.75%;
-}
-#placeCubeE2 {
-    bottom:11%;
-    left:44.75%;
-}
-#placeCubeE3 {
+#grid1_5 {
     bottom:21.5%;
     left:44.75%;
 }
-#placeCubeF3 {
+#grid1_6 {
     bottom:21.5%;
     left:55.75%;
 }
-#placeCubeG3 {
+#grid1_7 {
     bottom:21.5%;
     left:66.75%;
 }
-#placeCubeH1 {
-    bottom:.5%;
+#grid1_8 {
+    bottom:21.5%;
     left:77.75%;
 }
-#placeCubeH2 {
+#grid1_9 {
+    bottom:21.5%;
+    left:88.75%;
+}
+#grid2_1 {
+    bottom:11%;
+    left:.75%;
+}
+#grid2_2 {
+    bottom:11%;
+    left:11.75%;
+}
+#grid2_3 {
+    bottom:11%;
+    left:22.75%;
+}
+#grid2_4 {
+    bottom:11%;
+    left:33.75%;
+}
+#grid2_5 {
+    bottom:11%;
+    left:44.75%;
+}
+
+#grid2_6 {
+    bottom:11%;
+    left:55.75%;
+}
+#grid2_7 {
+    bottom:11%;
+    left:66.75%;
+}
+#grid2_8 {
     bottom:11%;
     left:77.75%;
 }
-#placeCubeH3 {
-    bottom:21.5%;
+#grid2_9 {
+    bottom:11%;
+    left:88.75%;
+}
+#grid3_1 {
+    bottom:.5%;
+    left:.75%;
+}
+#grid3_2 {
+    bottom:.5%;
+    left:11.75%;
+}
+#grid3_3 {
+    bottom:.5%;
+    left:22.75%;
+}
+#grid3_4 {
+    bottom:.5%;
+    left:33.75%;
+}
+#grid3_5 {
+    bottom:.5%;
+    left:44.75%;
+}
+#grid3_6 {
+    bottom:.5%;
+    left:55.75%;
+}
+#grid3_7 {
+    bottom:.5%;
+    left:66.75%;
+}
+#grid3_8 {
+    bottom:.5%;
     left:77.75%;
 }
-#placeCubeI3 {
-    bottom:21.5%;
+#grid3_9 {
+    bottom:.5%;
     left:88.75%;
+}
+
+button:hover {
+background-color: #ff00ff;
+transition: all 0.2s;
 }
 </style>
 
 </head>
 <body>
+
+<div id="loading">
+<img src="SVGLogo.svg" id="loadingLogo"></img>
+<p id="loadingText" class="display">connecting to the robot...</p>
+</div>
+
 <!-- V  Top Intake buttons  V -->
 
-<button id="cube_pickup" class="topButtonsTemplate cubePickup" onclick="clickButton()">Cube Pickup</button>
-<button id="cone_pickup_side" class="topButtonsTemplate conePickupGroundOnSide"onclick="clickButton()">Cone Pickup (Ground, Sideways)</button>
-<button id="cone_pickup_ground" class="topButtonsTemplate conePickupGroundUpright"onclick="clickButton()">Cone Pickup (Ground, Upright)</button>
-<button id="cone_pickup_shelf" class="topButtonsTemplate conePickupShelf"onclick="clickButton()">Cone Pickup (Shelf)</button>
-<button id="mid_grid" class="topButtonsTemplate midGrid"onclick="clickButton()"onclick="clickButton()">Mid Grid</button>
-<button id="high_grid" class="topButtonsTemplate highGrid"onclick="clickButton()"onclick="clickButton()">High Grid</button>
-<button id="arm_storage_traversal" class="topButtonsTemplate armStorageFieldTraversal"onclick="clickButton()">Arm Storage (Field Traversal)</button>
-<button id="arm_storage_start" class="topButtonsTemplate armStorageInsideFrame"onclick="clickButton()">Arm Storage (In Frame)</button>
+<button id="cube_pickup" class="topButtonsTemplate" onclick="clickButton()">Cube Pickup</button>
+<button id="cone_pickup_side" class="topButtonsTemplate" onclick="clickButton()">Cone Pickup (Ground, Sideways)</button>
+<button id="cone_pickup_ground" class="topButtonsTemplate" onclick="clickButton()">Cone Pickup (Ground, Upright)</button>
+<button id="cone_pickup_shelf" class="topButtonsTemplate" onclick="clickButton()">Cone Pickup (Shelf)</button>
+<button id="mid_grid" class="topButtonsTemplate" onclick="clickButton()"onclick="clickButton()">Mid Grid</button>
+<button id="high_grid" class="topButtonsTemplate" onclick="clickButton()"onclick="clickButton()">High Grid</button>
+<button id="arm_storage_traversal" class="topButtonsTemplate" onclick="clickButton()">Arm Storage (Field Traversal)</button>
+<button id="arm_storage_start" class="topButtonsTemplate" onclick="clickButton()">Arm Storage (In Frame)</button>
 
 <!-- ^  Top Intake Buttons  ^ -->
-<!-- V  Cone Buttons  V -->
+<!-- v  Cone Buttons  v -->
 
-<button id="placeConeA1"class="bottomButtonsTemplateCones placeConeA1"onclick="clickButton()"></button>
-<button id="placeConeA2"class="bottomButtonsTemplateCones placeConeA2"onclick="clickButton()"></button>
-<button id="placeConeC1"class="bottomButtonsTemplateCones placeConeC1"onclick="clickButton()"></button>
-<button id="placeConeC2"class="bottomButtonsTemplateCones placeConeC2"onclick="clickButton()"></button>
-<button id="placeConeD1"class="bottomButtonsTemplateCones placeConeD1"onclick="clickButton()"></button>
-<button id="placeConeD2"class="bottomButtonsTemplateCones placeConeD2"onclick="clickButton()"></button>
-<button id="placeConeF1"class="bottomButtonsTemplateCones placeConeF1"onclick="clickButton()"></button>
-<button id="placeConeF2"class="bottomButtonsTemplateCones placeConeF2"onclick="clickButton()"></button>
-<button id="placeConeG1"class="bottomButtonsTemplateCones placeConeG1"onclick="clickButton()"></button>
-<button id="placeConeG2"class="bottomButtonsTemplateCones placeConeG2"onclick="clickButton()"></button>
-<button id="placeConeI1"class="bottomButtonsTemplateCones placeConeI1"onclick="clickButton()"></button>
-<button id="placeConeI2"class="bottomButtonsTemplateCones placeConeI2"onclick="clickButton()"></button>
+<button class="bottomButtonsTemplateCones" onclick="clickButton()" id="grid2_1"></button>
+<button class="bottomButtonsTemplateCones" onclick="clickButton()" id="grid2_3"></button>
+<button class="bottomButtonsTemplateCones" onclick="clickButton()" id="grid2_4"></button>
+<button class="bottomButtonsTemplateCones" onclick="clickButton()" id="grid2_6"></button>
+<button class="bottomButtonsTemplateCones" onclick="clickButton()" id="grid2_7"></button>
+<button class="bottomButtonsTemplateCones" onclick="clickButton()" id="grid2_9"></button>
+
+<button class="bottomButtonsTemplateCones" onclick="clickButton()" id="grid3_1"></button>
+<button class="bottomButtonsTemplateCones" onclick="clickButton()" id="grid3_3"></button>
+<button class="bottomButtonsTemplateCones" onclick="clickButton()" id="grid3_4"></button>
+<button class="bottomButtonsTemplateCones" onclick="clickButton()" id="grid3_6"></button>
+<button class="bottomButtonsTemplateCones" onclick="clickButton()" id="grid3_7"></button>
+<button class="bottomButtonsTemplateCones" onclick="clickButton()" id="grid3_9"></button>
+
 <!-- ^  Cone Buttons  ^ -->
-<!-- V  Cube Buttons  V -->
+<!-- v  Cube Buttons  v -->
 
-<button id="placeCubeA3"class="bottomButtonsTemplateCubes placeCubeA3"onclick="clickButton()"></button>
-<button id="placeCubeB1"class="bottomButtonsTemplateCubes placeCubeB1"onclick="clickButton()"></button>
-<button id="placeCubeB2"class="bottomButtonsTemplateCubes placeCubeB2"onclick="clickButton()"></button>
-<button id="placeCubeB3"class="bottomButtonsTemplateCubes placeCubeB3"onclick="clickButton()"></button>
-<button id="placeCubeC3"class="bottomButtonsTemplateCubes placeCubeC3"onclick="clickButton()"></button>
-<button id="placeCubeD3"class="bottomButtonsTemplateCubes placeCubeD3"onclick="clickButton()"></button>
-<button id="placeCubeE1"class="bottomButtonsTemplateCubes placeCubeE1"onclick="clickButton()"></button>
-<button id="placeCubeE2"class="bottomButtonsTemplateCubes placeCubeE2"onclick="clickButton()"></button>
-<button id="placeCubeE3"class="bottomButtonsTemplateCubes placeCubeE3"onclick="clickButton()"></button>
-<button id="placeCubeF3"class="bottomButtonsTemplateCubes placeCubeF3"onclick="clickButton()"></button>
-<button id="placeCubeG3"class="bottomButtonsTemplateCubes placeCubeG3"onclick="clickButton()"></button>
-<button id="placeCubeH1"class="bottomButtonsTemplateCubes placeCubeH1"onclick="clickButton()"></button>
-<button id="placeCubeH2"class="bottomButtonsTemplateCubes placeCubeH2"onclick="clickButton()"></button>
-<button id="placeCubeH3"class="bottomButtonsTemplateCubes placeCubeH3"onclick="clickButton()"></button>
-<button id="placeCubeI3"class="bottomButtonsTemplateCubes placeCubeI3"onclick="clickButton()"></button>
+<button class="bottomButtonsTemplateCubes grid1_1" onclick="clickButton()" id="grid1_1"></button>
+<button class="bottomButtonsTemplateCubes grid1_2" onclick="clickButton()" id="grid1_2"></button>
+<button class="bottomButtonsTemplateCubes grid1_3" onclick="clickButton()" id="grid1_3"></button>
+<button class="bottomButtonsTemplateCubes grid1_4" onclick="clickButton()" id="grid1_4"></button>
+<button class="bottomButtonsTemplateCubes grid1_5" onclick="clickButton()" id="grid1_5"></button>
+<button class="bottomButtonsTemplateCubes grid1_6" onclick="clickButton()" id="grid1_6"></button>
+<button class="bottomButtonsTemplateCubes grid1_7" onclick="clickButton()" id="grid1_7"></button>
+<button class="bottomButtonsTemplateCubes grid1_8" onclick="clickButton()" id="grid1_8"></button>
+<button class="bottomButtonsTemplateCubes grid1_9" onclick="clickButton()" id="grid1_9"></button>
+
+<button class="bottomButtonsTemplateCubes grid2_2" onclick="clickButton()" id="grid2_2"></button>
+<button class="bottomButtonsTemplateCubes grid2_5" onclick="clickButton()" id="grid2_5"></button>
+<button class="bottomButtonsTemplateCubes grid2_8" onclick="clickButton()" id="grid2_8"></button>
+
+<button class="bottomButtonsTemplateCubes grid3_2" onclick="clickButton()" id="grid3_2"></button>
+<button class="bottomButtonsTemplateCubes grid3_5" onclick="clickButton()" id="grid3_5"></button>
+<button class="bottomButtonsTemplateCubes grid3_8" onclick="clickButton()" id="grid3_8"></button>
 
 <!-- ^  Cube Buttons  ^ -->
-<script>
-const vaultWebSocket = new WebSocket("ws://10.69.36.2:5801");
-vaultWebSocket.onopen = function(openEvent) {
-	console.log("socket opened")
-};
-vaultWebSocket.onmessage = function(messageEvent) {
-	var json = JSON.parse(messageEvent.data);
-    
-    };
-</script>
 <script>
 class Data {
   constructor(cube_pickup, cone_pickup_ground, cone_pickup_side, cone_pickup_shelf, mid_grid, high_grid, arm_storage_traversal, arm_storage_start, auto_place) {
@@ -246,14 +286,45 @@ class Data {
       this.arm_storage_traversal;
       this.arm_storage_start;
       this.auto_place = [auto_place[0], auto_place[1], auto_place[2]];
-
   }
 }
 
+socket = new WebSocket("ws://10.69.36.2:5801");
+
+var interval = window.setInterval(() => window.location.reload(), 5000);
+
+socket.onopen = function(event) {clearInterval(interval); loading.style = "top: -100%"};
+
+socket.onmessage = function(event) {
+  try
+  {
+	var localData = JSON.parse(event.data);
+	document.getElementById("cube_pickup").style = localData.cube_pickup ? "background-color: red" : "background-color: blueviolet" ;
+	document.getElementById("cone_pickup_side").style = localData.cone_pickup_side ? "background-color: red" : "background-color: yellow" ;
+	document.getElementById("cone_pickup_ground").style = localData.cone_pickup_ground ? "background-color: red" : "background-color: yellow" ;
+	document.getElementById("cone_pickup_shelf").style = localData.cone_pickup_shelf ? "background-color: red" : "background-color: yellow" ;
+	document.getElementById("mid_grid").style = localData.mid_grid ? "background-color: red" : "background-color: #9af773" ;
+	document.getElementById("high_grid").style = localData.high_grid ? "background-color: red" : "background-color: #9af773" ;
+	document.getElementById("arm_storage_traversal").style = localData.arm_storage_traversal ? "background-color: red" : "background-color: #9af773" ;
+	document.getElementById("arm_storage_start").style = localData.arm_storage_start ? "background-color: red" : "background-color: #9af773" ;
+	for (let i = 0 ; i < localData.auto_place.length; i++)
+	{
+	  document.getElementById(localData.auto_place[i]).style = "background-color: red" ;
+	}
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+
 function clickButton() {
-  console.log("hi");
-  document.write(event.target.id);
-  websocket.send('{"name":' + id + '}');
+  var id = event.target.id;
+  console.log(id);
+  try {
+    socket.send('{"name":' + id + '}');
+  } catch {
+    window.location.reload(); //assumes that the robot is not connected and reloads the page
+  }
 }
 </script>
 </body>
