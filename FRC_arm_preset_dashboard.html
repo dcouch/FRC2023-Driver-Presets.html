@@ -286,6 +286,7 @@ class Data {
       this.arm_storage_traversal;
       this.arm_storage_start;
       this.auto_place = [auto_place[0], auto_place[1], auto_place[2]];
+
   }
 }
 
@@ -320,11 +321,7 @@ socket.onmessage = function(event) {
 function clickButton() {
   var id = event.target.id;
   console.log(id);
-  try {
-    socket.send('{"name":' + id + '}');
-  } catch {
-    window.location.reload(); //assumes that the robot is not connected and reloads the page
-  }
+  socket.send('{"name": ' + '"' + id + '" }');
 }
 </script>
 </body>
